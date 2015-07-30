@@ -35,30 +35,30 @@ function isTopRight(grid) {
     // the board. These diagonals intersect the board, nonetheless.
     for(var baseCol=1-numRows + (matchReq-1); baseCol<numCols - (matchReq - 1); baseCol++) {
 
-    found = 0;
-    foundPiece = 0;
+      found = 0;
+      foundPiece = 0;
 
-    // Here we work our way up the current diagonal
-    for(var row=0; row<numRows; row++) {
+      // Here we work our way up the current diagonal
+      for(var row=0; row<numRows; row++) {
 
-      // For each row, we find the // column that the diagonal runs through
-      col = baseCol + row;
+        // For each row, we find the column that the diagonal runs through
+        col = baseCol + row;
 
-      // Ensure that the given column and row are on the board
-      if(col >= 0 && col < numCols && row >= 0 && row < numRows) {
-        let piece = grid[col][row]
-        if(!foundPiece) {
-          foundPiece = piece;
+        // Ensure that the given column and row are on the board
+        if(col >= 0 && col < numCols && row >= 0 && row < numRows) {
+          let piece = grid[col][row]
+          if(!foundPiece) {
+            foundPiece = piece;
+          }
+          if(piece !== foundPiece) {
+            break;
+          }
+          if((++found) === 4) {
+            return true;
+          }
         }
-        if(piece !== foundPiece) {
-          break;
-        }
-        if((++found) === 4) {
-          return true;
-        }
+
       }
-
-    }
   }
   return false;
 }
