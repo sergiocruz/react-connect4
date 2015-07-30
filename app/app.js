@@ -1,13 +1,16 @@
 'use strict';
 
 import React from 'react';
-import Connect4 from './connect4';
+import Connect4 from './components/connect4/connect4';
 
 let App = React.createClass({
 
-  render: () => {
+  render() {
     return (
-      <h1>Hello World</h1>
+      <div>
+        <h1>Connect Four</h1>
+        <Connect4 />
+      </div>
     );
   }
 
