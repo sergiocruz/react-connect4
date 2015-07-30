@@ -5,13 +5,17 @@
     "es6": true
   },
 
-  "plugins": ["react"],
-
   "ecmaFeatures": {
+    "modules": true,
     "jsx": true
   },
 
   "rules": {
-    "eol-last": 1
+    "strict": "global",
+    "quotes": [1, "single"],
+    "no-trailing-spaces": 1,
+    "eol-last": 1,
+    "no-use-before-define": "nofunc",
+    "no-unused-vars": 2
   }
 }

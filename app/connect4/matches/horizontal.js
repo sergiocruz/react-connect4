@@ -1,5 +1,3 @@
-'use strict';
-
 export default isHorizontal;
 
 /**
@@ -18,11 +16,11 @@ function isHorizontal(grid) {
   let found = 0;
   let foundPiece = 0;
 
-  for (let i = 0; i < rowsNum; i++) {
-    for (let j = 0; j < columnsNum; j++) {
+  for (let x = 0; x < rowsNum; x++) {
+    for (let y = 0; y < columnsNum; y++) {
 
       // Current piece in this row
-      let piece = grid[j][i];
+      let piece = grid[y][x];
 
       // Reset things if piece is 0
       if (piece === 0) {
@@ -30,7 +28,7 @@ function isHorizontal(grid) {
         foundPiece = 0;
         continue;
       }
-      
+
       if (piece !== foundPiece) {
         found = 1;
         foundPiece = piece;

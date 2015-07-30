@@ -1,27 +1,24 @@
 'use strict';
 
-export default {};
-
+// Importing modules that executes the matching for us
 import isHorizontal from './matches/horizontal';
 import isVertical from './matches/vertical';
-
-// This is a Connect 4 game, so our matches will always be 4
-const matchesNum = 4;
+import isDiagonal from './matches/diagonal';
 
 /**
- * Our multimentional array representing the grid
+ * Multimentional array representing the Connect4 grid
  * @type {Array}
  */
 let grid = [
-  [ 1, 1, 1, 1, 1, 0 ],
-  [ 0, 1, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 1, 0, 0 ],
   [ 0, 0, 1, 0, 0, 0 ],
-  [ 0, 1, 0, 1, 0, 0 ],
-  [ 0, 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 0, 0, 0 ]
+  [ 0, 1, 0, 0, 0, 0 ],
+  [ 1, 0, 0, 0, 0, 0 ]
 ];
 
 console.log('Vertical?', isVertical(grid));
 console.log('Horizontal?', isHorizontal(grid));
+console.log('Diagonal?', isDiagonal(grid));
