@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+
+  "plugins": ["react"],
+
+  "ecmaFeatures": {
+    "jsx": true
+  },
+
+  "rules": {
+    "eol-last": 1
+  }
+}
