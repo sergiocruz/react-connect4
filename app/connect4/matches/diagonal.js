@@ -26,9 +26,10 @@ function isTopRight(grid) {
       maxDiagSize = Math.min(numCols, numRows),
       numDiags = numCols + numRows - 1,
       found,
-      foundPiece;
+      foundPiece,
+      matchReq = 4; // Because Connect 4
 
-  for(var baseCol=1-numRows; baseCol<numCols; baseCol++) {
+    for(var baseCol=1-numRows + (matchReq-1); baseCol<numCols - (matchReq - 1); baseCol++) {
 
     found = 0;
     foundPiece = 0;
