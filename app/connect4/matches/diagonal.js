@@ -29,15 +29,22 @@ function isTopRight(grid) {
       foundPiece,
       matchReq = 4; // Because Connect 4
 
+    // Here, we take successive diagonals, defined by the location of their "base",
+    // meaning the column where they meet the ground.
+    // The initial baseCol is a negative number, representing that the diagonal starts off
+    // the board. These diagonals intersect the board, nonetheless.
     for(var baseCol=1-numRows + (matchReq-1); baseCol<numCols - (matchReq - 1); baseCol++) {
 
     found = 0;
     foundPiece = 0;
 
+    // Here we work our way up the current diagonal
     for(var row=0; row<numRows; row++) {
 
+      // For each row, we find the // column that the diagonal runs through
       col = baseCol + row;
 
+      // Ensure that the given column and row are on the board
       if(col >= 0 && col < numCols && row >= 0 && row < numRows) {
         let piece = grid[col][row]
         if(!foundPiece) {
