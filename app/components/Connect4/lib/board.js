@@ -1,3 +1,5 @@
+import matches from './matches';
+
 /**
  * Board class
  */
@@ -34,6 +36,12 @@ export default class Board {
      * @type {String}
      */
     this.nextPlayer = refreshPlayer(this.inserts);
+
+    /**
+     * Board is active by default (disables when somebody wins)
+     * @type {Boolean}
+     */
+    this.isActive = true;
   }
 
 
@@ -66,7 +74,23 @@ export default class Board {
 
       // Who's the next player?
       this.nextPlayer = refreshPlayer(this.inserts);
+
+      // Makes board innactive if somebody won
+      if (this.didSomebodyWin()) {
+        this.isActive = false;
+      }
     }
+  }
+
+  /**
+   * Did somebody win?
+   * @return {Bool} [description]
+   */
+  didSomebodyWin() {
+
+    // Trying to look for matches
+    return matches(this.grid);
+
   }
 }
 
@@ -82,7 +106,7 @@ export default class Board {
  * List of available players
  * @type {Array}
  */
-var availablePlayers = [
+let availablePlayers = [
   'red',
   'blue'
 ];

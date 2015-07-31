@@ -1,0 +1,9 @@
+.connect4-grid {
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  
+}

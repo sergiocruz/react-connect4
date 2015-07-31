@@ -87,10 +87,10 @@ function isTopLeft(grid) {
   let foundPiece;
   let col;
 
-    // Here, we take successive diagonals, defined by the location of their "base",
-    // meaning the column where they meet the ground.
-    // The initial baseCol is a negative number, representing that the diagonal starts off
-    // the board. These diagonals intersect the board, nonetheless.
+  // Here, we take successive diagonals, defined by the location of their "base",
+  // meaning the column where they meet the ground.
+  // The initial baseCol is a negative number, representing that the diagonal starts off
+  // the board. These diagonals intersect the board, nonetheless.
   for (
     let baseCol = matchReq - numRows;
     baseCol < numCols - (matchReq - 1);

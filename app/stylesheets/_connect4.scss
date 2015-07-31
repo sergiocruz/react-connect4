@@ -1,9 +1,25 @@
-// Connect4 variables: color states
+// Connect4 variables
+$numColumns: 7;
+$numRows: 6;
 $cell-empty: #eeeeee;
 $cell-empty-hover: #dddddd;
 $cell-player-red: #801515;
 $cell-player-blue: #231858;
 
 // Connect4 Components
+@import 'connect4/grid';
 @import 'connect4/column';
 @import 'connect4/cell';
+@import 'connect4/status';
+
+
+.connect4-label {
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+
+  &.connect4-label--failure {
+    color: $cell-player-red;
+  }
+}

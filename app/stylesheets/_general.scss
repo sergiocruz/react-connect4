@@ -8,3 +8,20 @@ body {
   font-family: Arial;
   color: #333;
 }
+
+.container {
+  width: 700px;
+  margin: 10px auto;
+}
+
+.col {
+  display: inline-block;
+}
+
+.col--half {
+  width: 50%;
+}
+
+.align-right {
+  text-align: right;
+}

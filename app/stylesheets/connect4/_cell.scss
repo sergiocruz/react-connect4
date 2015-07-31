@@ -1,29 +1,45 @@
+$cell-size: 80px;
+$cell-size-mini: 30px;
+
 .connect4-cell {
   background: $cell-empty;
   border-radius: 50%;
   border: none;
   color: #333;
   cursor: pointer;
-  display: block;
+  display: inline-block;
   font-size: 12px;
-  height: 80px;
+  height: $cell-size;
   margin: 10px auto;
   outline: none;
-  padding: 35% 0 0 0;
+  padding: 0;
   text-align: center;
   text-decoration: none;
-  width: 80px;
+  vertical-align: middle;
+  width: $cell-size;
 
-  &:hover {
+  .connect4-grid--active &:hover {
     background-color: $cell-empty-hover;
   }
 
+  .connect4-grid--inactive & {
+    cursor: default;
+  }
+
   &.connect4-cell--red {
-    background-color: $cell-player-red;
+    background-color: $cell-player-red !important;
   }
 
   &.connect4-cell--blue {
-    background-color: $cell-player-blue;
+    background-color: $cell-player-blue !important;
   }
+
+  &.connect4-cell--mini {
+    cursor: default;
+    height: $cell-size-mini;
+    margin: 0;
+    width: $cell-size-mini;
+  }
+
 }
 

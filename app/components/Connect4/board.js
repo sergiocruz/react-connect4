@@ -1,7 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 import Connect4 from './lib';
 import Cell from './cell';
-import classNames from 'classnames';
 
 export default React.createClass({
 
@@ -10,7 +10,8 @@ export default React.createClass({
    * @type {Object}
    */
   propTypes: {
-    board: React.PropTypes.instanceOf(Connect4.Board)
+    board: React.PropTypes.instanceOf(Connect4.Board),
+    refresh: React.PropTypes.func.isRequired
   },
 
   /**
@@ -21,11 +22,16 @@ export default React.createClass({
    */
   handleAddPiece(columnIndex, piece) {
 
+    // Does nothing if board is inactive
+    if (!this.props.board.isActive) {
+      return;
+    }
+
     // Add piece
     this.props.board.addPiece(columnIndex, piece);
 
-    // Force UI update
-    this.forceUpdate();
+    // Refresh rest of UI
+    this.props.refresh();
 
   },
 
@@ -35,15 +41,27 @@ export default React.createClass({
    */
   render() {
 
+    // Shortcut to props board
+    let board = this.props.board;
+
+    // Grid CSS classes
+    let gridClasses = classNames({
+      'connect4-grid': true,
+      'connect4-grid--active': board.isActive,
+      'connect4-grid--inactive': !board.isActive
+    });
+
     return (
-      <div className="connect4-grid">
-        {this.props.board.grid.map((column, columnIndex) => {
+      <div className={gridClasses}>
+
+        {board.grid.map((column, columnIndex) => {
 
           return (
             <div className="connect4-column">
+
               {column.map((cell, y) => {
 
-                let classes = classNames({
+                let cellClasses = classNames({
                   'connect4-cell': true,
                   'connect4-cell--red': (cell === 'red'),
                   'connect4-cell--blue': (cell === 'blue')
@@ -51,11 +69,11 @@ export default React.createClass({
 
                 return (
                   <button
-                    className={classes}
+                    className={cellClasses}
                     onClick={this.handleAddPiece.bind(
                       this,
                       columnIndex,
-                      this.props.board.nextPlayer
+                      board.nextPlayer
                     )}>
                   </button>
                 );

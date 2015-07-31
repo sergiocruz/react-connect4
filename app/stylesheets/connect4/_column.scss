@@ -1,4 +1,4 @@
 .connect4-column {
   float: left;
-  width: 100px;
+  width: 100% / $numColumns;
 }
