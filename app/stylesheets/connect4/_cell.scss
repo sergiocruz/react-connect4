@@ -1,0 +1,29 @@
+.connect4-cell {
+  background: $cell-empty;
+  border-radius: 50%;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  height: 80px;
+  margin: 10px auto;
+  outline: none;
+  padding: 35% 0 0 0;
+  text-align: center;
+  text-decoration: none;
+  width: 80px;
+
+  &:hover {
+    background-color: $cell-empty-hover;
+  }
+
+  &.connect4-cell--red {
+    background-color: $cell-player-red;
+  }
+
+  &.connect4-cell--blue {
+    background-color: $cell-player-blue;
+  }
+}
+

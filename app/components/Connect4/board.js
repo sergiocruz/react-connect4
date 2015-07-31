@@ -37,22 +37,26 @@ export default React.createClass({
 
     return (
       <div className="connect4-grid">
-        {this.props.board.grid.map((column, x) => {
+        {this.props.board.grid.map((column, columnIndex) => {
 
           return (
             <div className="connect4-column">
-              {column.map((row, y) => {
+              {column.map((cell, y) => {
 
                 let classes = classNames({
-                  'connect4-row': true,
-                  'connect4-row--red': (row === 'red'),
-                  'connect4-row--blue': (row === 'blue')
+                  'connect4-cell': true,
+                  'connect4-cell--red': (cell === 'red'),
+                  'connect4-cell--blue': (cell === 'blue')
                 });
 
                 return (
                   <button
                     className={classes}
-                    onClick={this.handleAddPiece.bind(this, x, this.props.board.nextPlayer)}>
+                    onClick={this.handleAddPiece.bind(
+                      this,
+                      columnIndex,
+                      this.props.board.nextPlayer
+                    )}>
                   </button>
                 );
 

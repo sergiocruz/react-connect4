@@ -1,33 +1,9 @@
-.connect4-column {
-  float: left;
-  width: 100px;
-}
+// Connect4 variables: color states
+$cell-empty: #eeeeee;
+$cell-empty-hover: #dddddd;
+$cell-player-red: #801515;
+$cell-player-blue: #231858;
 
-.connect4-row {
-  background: #eee;
-  border-radius: 50%;
-  border: none;
-  color: #333;
-  cursor: pointer;
-  display: block;
-  font-size: 12px;
-  height: 80px;
-  margin: 10px auto;
-  outline: none;
-  padding: 35% 0 0 0;
-  text-align: center;
-  text-decoration: none;
-  width: 80px;
-}
-
-.connect4-row:hover {
-  background-color: #ddd;
-}
-
-.connect4-row.connect4-row--red {
-  background-color: #801515;
-}
-
-.connect4-row.connect4-row--blue {
-  background-color: #231858;
-}
+// Connect4 Components
+@import 'connect4/column';
+@import 'connect4/cell';
