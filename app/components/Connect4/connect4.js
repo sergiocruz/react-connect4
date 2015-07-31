@@ -1,22 +1,13 @@
 import React from 'react';
+import Board from './board';
 import Connect4 from './lib'
 
-let grid = Connect4.getEmptyGrid();
+let board = new Connect4.Board();
 
 export default React.createClass({
   render() {
-
     return (
-      <div class="connect4-grid">
-        {grid.map((column, x) => {
-          return <div className="connect4-column">
-            {column.map((row, y) => {
-              return <a className="connect4-row" href="#">{x}, {y}</a>
-            })}
-          </div>
-        })}
-      </div>
+      <Board board={board} />
     );
-
   }
 });
