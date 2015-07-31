@@ -2,7 +2,7 @@
 
 ### Pre-requirements
 - node & npm
-- Have gulp installed (version >= 1.9) `npm i gulp -g`
+- Have gulp installed (version >= 3.9) `npm i gulp -g`
 
 ### To get started
 _This step is very difficult, so play close attention._
