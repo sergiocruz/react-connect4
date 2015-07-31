@@ -8,10 +8,15 @@ import watchify from 'watchify';
 import exorcist from 'exorcist';
 import browserify from 'browserify';
 import browserSync from 'browser-sync';
+import sass from 'gulp-sass';
+
+// Browsersync Reload
+const reload = browserSync.reload;
 
 // Input file.
 watchify.args.debug = true;
-let bundler = watchify(browserify('./app/app.js', watchify.args));
+// let bundler = watchify(browserify('./app/app.js', watchify.args));
+let bundler = browserify('./app/app.js', watchify.args);
 
 // Babel transform
 bundler.transform(babelify.configure({
@@ -40,7 +45,7 @@ function bundle() {
 /**
  * Gulp task alias
  */
-gulp.task('bundle', () => {
+gulp.task('bundle', ['styles'], () => {
   return bundle();
 });
 
@@ -51,4 +56,31 @@ gulp.task('default', ['bundle'], () => {
   browserSync.init({
     server: './public'
   });
+});
+
+gulp.task('styles', () => {
+  return gulp.src('app/stylesheets/*.scss')
+    // .pipe($.plumber())
+    // .pipe($.sourcemaps.init())
+    .pipe(sass.sync({
+      outputStyle: 'expanded',
+      precision: 10,
+      includePaths: ['.']
+    }).on('error', sass.logError))
+    // .pipe($.autoprefixer({browsers: ['last 1 version']}))
+    // .pipe($.uncss({
+    //   html: ['app/*.html']
+    // }))
+    // .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('public/stylesheets'))
+    .pipe(bundle());
+    // .pipe(reload({stream: true}));
+});
+
+gulp.task('watch', ['default'], () => {
+
+  gulp.watch('app/stylesheets/**/*.scss', ['styles']);
+  gulp.watch('app/**/*.js', ['bundle'])
+  gulp.watch('public/**/*.html', ['bundle'])
+
 });

@@ -4,7 +4,6 @@ import React from 'react';
 import Connect4 from './components/connect4/connect4';
 
 let App = React.createClass({
-
   render() {
     return (
       <div>
@@ -13,7 +12,9 @@ let App = React.createClass({
       </div>
     );
   }
-
 });
 
-React.render(<App />, document.body);
+React.render(
+  <App />,
+  document.getElementById('app')
+);
