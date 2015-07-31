@@ -8,8 +8,9 @@
 _This step is very difficult, so play close attention._
 
 1. `cd` into your project directory
-2. run `gulp`
-3. that's it, I was just kidding about the difficult part :)
+2. run `npm install`
+3. run `gulp`
+4. that's it, I was just kidding about the difficult part :)
 
 ### Ran into problems, or have any suggestions?
 Ping me on twitter [@hashtagserg](https://twitter.com/hashtagserg) or [open an issue](https://github.com/sergiocruz/react-connect4/issues).
