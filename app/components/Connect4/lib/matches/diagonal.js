@@ -41,7 +41,7 @@ function isTopLeft(grid) {
     col = baseCol - 1; // Subtracting 1 to compensate for incrementing col at
                        // the beginning of the loop
 
-    // Here we work our way up the current diagonal
+    // Here we work our way *UP* the current diagonal
     for (let row = 0; row < numRows; row++) {
       col++;
 
@@ -102,7 +102,7 @@ function isTopRight(grid) {
       col = baseCol - 1; // Subtracting 1 to compensate for incrementing col at
                          // the beginning of the loop
 
-      // Here we work our way *down* the current diagonal
+      // Here we work our way *DOWN* the current diagonal
       for (let row = numRows - 1; row >= 0; row--) {
         col++;
 
