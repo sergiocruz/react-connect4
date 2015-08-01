@@ -50,25 +50,17 @@ function isTopLeft(grid) {
 
         let piece = grid[col][row];
 
-        // Does nothing if piece is zero
-        if (!piece) {
-          foundPiece = 0;
-          continue;
+        if(!piece) {
+          found = 0;
         }
 
-        if (!foundPiece) {
-          foundPiece = piece;
-        }
-
-        if (piece !== foundPiece) {
-          break;
-        }
-
-        if ((++found) === matchReq) {
+        if (!!piece && (piece === foundPiece || !foundPiece) && (++found) === matchReq) {
           return true;
         }
-      }
 
+        foundPiece = piece;
+
+      }
     }
   }
 
@@ -112,25 +104,18 @@ function isTopRight(grid) {
 
           let piece = grid[col][row];
 
-          if (!piece) {
-            foundPiece = 0;
-            continue;
+          if(!piece) {
+            found = 0;
           }
 
-          if (!foundPiece) {
-            foundPiece = piece;
-          }
-
-          if (piece !== foundPiece) {
-            break;
-          }
-
-          if ((++found) === matchReq) {
+          if (!!piece && (piece === foundPiece || !foundPiece) && (++found) === matchReq) {
             return true;
           }
-        }
+
+          foundPiece = piece;
 
       }
+    }
   }
 
   return false;
