@@ -63,7 +63,7 @@ function isTopLeft(grid) {
           break;
         }
 
-        if ((++found) === 4) {
+        if ((++found) === matchReq) {
           return true;
         }
       }
@@ -125,7 +125,7 @@ function isTopRight(grid) {
             break;
           }
 
-          if ((++found) === 4) {
+          if ((++found) === matchReq) {
             return true;
           }
         }
