@@ -52,6 +52,7 @@ function isTopLeft(grid) {
 
         // Does nothing if piece is zero
         if (!piece) {
+          foundPiece = 0;
           continue;
         }
 
@@ -114,6 +115,7 @@ function isTopRight(grid) {
           }
 
           if (!piece) {
+            foundPiece = 0;
             continue;
           }
 
