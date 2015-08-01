@@ -111,8 +111,6 @@ function isTopRight(grid) {
         if (col >= 0 && col < numCols && row < numRows) {
 
           let piece = grid[col][row];
-          if (piece == "red") {
-          }
 
           if (!piece) {
             foundPiece = 0;
