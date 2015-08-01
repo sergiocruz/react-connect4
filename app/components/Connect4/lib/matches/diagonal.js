@@ -20,7 +20,7 @@ function isDiagonal(grid) {
  *
  * @return {Boolean}
  */
-function isTopRight(grid) {
+function isTopLeft(grid) {
 
   let found;
   let foundPiece;
@@ -80,7 +80,7 @@ function isTopRight(grid) {
  *
  * @return {Boolean}
  */
-function isTopLeft(grid) {
+function isTopRight(grid) {
 
   let found;
   let foundPiece;
