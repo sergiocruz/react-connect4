@@ -38,10 +38,11 @@ function isTopRight(grid) {
 
     found = 0;
     foundPiece = 0;
-    col = baseCol;
+    col = baseCol - 1;
 
     // Here we work our way up the current diagonal
     for (let row = 0; row < numRows; row++) {
+      col++;
 
       // Ensure that the given column and row are on the board
       if (col >= 0 && col < numCols && row < numRows) {
@@ -66,8 +67,6 @@ function isTopRight(grid) {
         }
       }
 
-      // increase column for next cell
-      ++col;
     }
   }
 
@@ -99,18 +98,22 @@ function isTopLeft(grid) {
 
       found = 0;
       foundPiece = 0;
-      col = baseCol;
+      col = baseCol - 1;
 
       // Here we work our way *down* the current diagonal
-      for (let row = 0; row < numRows; row++) {
+      for (let row = numRows - 1; row >= 0; row--) {
+        col++;
 
         // Ensure that the given column and row are on the board
         if (col >= 0 && col < numCols && row < numRows) {
 
           let piece = grid[col][row];
+          if (piece == "red") {
+            console.log("  found RED piece")
+          }
 
           if (!piece) {
-            break;
+            continue;
           }
 
           if (!foundPiece) {
@@ -126,8 +129,6 @@ function isTopLeft(grid) {
           }
         }
 
-        // increase column for next cell
-        ++col;
       }
   }
 
