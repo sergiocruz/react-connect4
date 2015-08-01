@@ -38,7 +38,8 @@ function isTopLeft(grid) {
 
     found = 0;
     foundPiece = 0;
-    col = baseCol - 1;
+    col = baseCol - 1; // Subtracting 1 to compensate for incrementing col at
+                       // the beginning of the loop
 
     // Here we work our way up the current diagonal
     for (let row = 0; row < numRows; row++) {
@@ -98,7 +99,8 @@ function isTopRight(grid) {
 
       found = 0;
       foundPiece = 0;
-      col = baseCol - 1;
+      col = baseCol - 1; // Subtracting 1 to compensate for incrementing col at
+                         // the beginning of the loop
 
       // Here we work our way *down* the current diagonal
       for (let row = numRows - 1; row >= 0; row--) {
