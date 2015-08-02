@@ -17,4 +17,6 @@ Ping me on twitter [@hashtagserg](https://twitter.com/hashtagserg) or [open an i
 
 _Please keep in mind that the sole purpose of this project is to practice (and learn) my skills in ReactJS, please be kind :)_
 
+===
+
 ![react-connect4](https://cloud.githubusercontent.com/assets/1854949/9027054/aa874992-3913-11e5-83d2-99b065b88ada.png)
