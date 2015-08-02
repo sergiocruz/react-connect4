@@ -15,8 +15,8 @@ const reload = browserSync.reload;
 
 // Input file.
 watchify.args.debug = true;
-// let bundler = watchify(browserify('./app/app.js', watchify.args));
-let bundler = browserify('./app/app.js', watchify.args);
+// let bundler = watchify(browserify('app/client.js', watchify.args));
+let bundler = browserify('app/client.js', watchify.args);
 
 // Babel transform
 bundler.transform(babelify.configure({
@@ -38,7 +38,7 @@ function bundle() {
     })
     .pipe(exorcist('public/js/bundle.js.map'))
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest('./public/js'))
+    .pipe(gulp.dest('public/js'))
     .pipe(browserSync.stream({once: true}));
 }
 
@@ -50,11 +50,11 @@ gulp.task('bundle', ['styles'], () => {
 });
 
 /**
- * First bundle, then serve from the ./public directory
+ * First bundle, then serve from the public directory
  */
 gulp.task('default', ['bundle'], () => {
   browserSync.init({
-    server: './public'
+    server: 'public'
   });
 });
 
