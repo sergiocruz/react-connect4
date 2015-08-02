@@ -20,7 +20,7 @@ function isDiagonal(grid) {
  *
  * @return {Boolean}
  */
-function isTopRight(grid) {
+function isTopLeft(grid) {
 
   let found;
   let foundPiece;
@@ -38,36 +38,29 @@ function isTopRight(grid) {
 
     found = 0;
     foundPiece = 0;
-    col = baseCol;
+    col = baseCol - 1; // Subtracting 1 to compensate for incrementing col at
+                       // the beginning of the loop
 
-    // Here we work our way up the current diagonal
+    // Here we work our way *UP* the current diagonal
     for (let row = 0; row < numRows; row++) {
+      col++;
 
       // Ensure that the given column and row are on the board
       if (col >= 0 && col < numCols && row < numRows) {
 
         let piece = grid[col][row];
 
-        // Does nothing if piece is zero
-        if (!piece) {
-          continue;
+        if(!piece) {
+          found = 0;
         }
 
-        if (!foundPiece) {
-          foundPiece = piece;
-        }
-
-        if (piece !== foundPiece) {
-          break;
-        }
-
-        if ((++found) === 4) {
+        if (!!piece && (piece === foundPiece || !foundPiece) && (++found) === matchReq) {
           return true;
         }
-      }
 
-      // increase column for next cell
-      ++col;
+        foundPiece = piece;
+
+      }
     }
   }
 
@@ -81,7 +74,7 @@ function isTopRight(grid) {
  *
  * @return {Boolean}
  */
-function isTopLeft(grid) {
+function isTopRight(grid) {
 
   let found;
   let foundPiece;
@@ -99,36 +92,30 @@ function isTopLeft(grid) {
 
       found = 0;
       foundPiece = 0;
-      col = baseCol;
+      col = baseCol - 1; // Subtracting 1 to compensate for incrementing col at
+                         // the beginning of the loop
 
-      // Here we work our way *down* the current diagonal
-      for (let row = 0; row < numRows; row++) {
+      // Here we work our way *DOWN* the current diagonal
+      for (let row = numRows - 1; row >= 0; row--) {
+        col++;
 
         // Ensure that the given column and row are on the board
         if (col >= 0 && col < numCols && row < numRows) {
 
           let piece = grid[col][row];
 
-          if (!piece) {
-            break;
+          if(!piece) {
+            found = 0;
           }
 
-          if (!foundPiece) {
-            foundPiece = piece;
-          }
-
-          if (piece !== foundPiece) {
-            break;
-          }
-
-          if ((++found) === 4) {
+          if (!!piece && (piece === foundPiece || !foundPiece) && (++found) === matchReq) {
             return true;
           }
-        }
 
-        // increase column for next cell
-        ++col;
+          foundPiece = piece;
+
       }
+    }
   }
 
   return false;
