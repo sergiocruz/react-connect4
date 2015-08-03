@@ -57,7 +57,7 @@ export default React.createClass({
         {board.grid.map((column, columnIndex) => {
 
           return (
-            <div className="connect4-column">
+            <div className="connect4-column" key={`column-${columnIndex}`}>
 
               {column.map((cell, y) => {
 
@@ -69,6 +69,7 @@ export default React.createClass({
 
                 return (
                   <button
+                    key={`cell-${columnIndex}-${y}`}
                     className={cellClasses}
                     onClick={this.handleAddPiece.bind(
                       this,

@@ -2,8 +2,8 @@ import React from 'react';
 import Connect4 from './lib'
 
 // Components
-import Board from './board';
-import BoardStatus from './board-status';
+import Board from './Board';
+import BoardStatus from './BoardStatus';
 
 
 export default React.createClass({
@@ -21,7 +21,6 @@ export default React.createClass({
   },
 
   handleGameRefresh() {
-    console.log('refrshing!');
     this.forceUpdate();
   },
 
