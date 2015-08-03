@@ -1,16 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export default React.createClass({
-
-  /**
-   * Required properties
-   * @type {Object}
-   */
-  propTypes: {
-    // Restart function
-    restart: React.PropTypes.func.isRequired
-  },
+export default class BoardStatus extends React.Component {
 
   /**
    * Render things
@@ -26,7 +17,6 @@ export default React.createClass({
       let nextPlayerClasses = classNames({
         'connect4-cell': true,
         'connect4-cell--mini': true,
-        'connect4-cell--mini': true,
         'connect4-cell--red': (this.props.board.nextPlayer === 'red'),
         'connect4-cell--blue': (this.props.board.nextPlayer === 'blue')
       });
@@ -37,7 +27,9 @@ export default React.createClass({
       </div>;
 
     } else {
-      nextTurn = <div className="connect4-label connect4-label--failure">Game over!</div>;
+      nextTurn = <div className="connect4-label connect4-label--failure">
+        Game over!
+      </div>;
     }
 
     return (
@@ -48,7 +40,7 @@ export default React.createClass({
           </div>
 
           <p>
-            <button onClick={this.props.restart}>Restart game</button>
+            <button onClick={this.props.restart.bind(this)}>Restart game</button>
           </p>
 
       </div>
@@ -56,4 +48,13 @@ export default React.createClass({
 
   }
 
-});
+}
+
+/**
+ * Required properties
+ * @type {Object}
+ */
+BoardStatus.propTypes = {
+  // Restart game function
+  restart: React.PropTypes.func.isRequired
+};

@@ -1,7 +1,8 @@
 import React from 'react';
-import Connect4 from './Connect4/Connect4';
+import Connect4 from './connect4/connect4';
 
-export default React.createClass({
+export default class App extends React.Component {
+
   render() {
     return (
       <div>
@@ -10,4 +11,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

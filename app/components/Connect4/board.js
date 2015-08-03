@@ -3,37 +3,7 @@ import classNames from 'classnames';
 import Connect4 from './lib';
 import Cell from './cell';
 
-export default React.createClass({
-
-  /**
-   * Required properties
-   * @type {Object}
-   */
-  propTypes: {
-    board: React.PropTypes.instanceOf(Connect4.Board),
-    refresh: React.PropTypes.func.isRequired
-  },
-
-  /**
-   * Function called when each cell is clicked, adding piece and re-render UI
-   * @param  {Number} columnIndex
-   * @param  {String} piece
-   * @return {Void}
-   */
-  handleAddPiece(columnIndex, piece) {
-
-    // Does nothing if board is inactive
-    if (!this.props.board.isActive) {
-      return;
-    }
-
-    // Add piece
-    this.props.board.addPiece(columnIndex, piece);
-
-    // Refresh rest of UI
-    this.props.refresh();
-
-  },
+export default class Board extends React.Component {
 
   /**
    * Render all the things
@@ -45,21 +15,21 @@ export default React.createClass({
     let board = this.props.board;
 
     // Grid CSS classes
-    let gridClasses = classNames({
-      'connect4-grid': true,
-      'connect4-grid--active': board.isActive,
-      'connect4-grid--inactive': !board.isActive
+    let boardClasses = classNames({
+      'connect4-board': true,
+      'connect4-board--active': board.isActive,
+      'connect4-board--inactive': !board.isActive
     });
 
     return (
-      <div className={gridClasses}>
+      <div className={boardClasses}>
 
-        {board.grid.map((column, columnIndex) => {
+        {board.grid.map((column, y) => {
 
           return (
-            <div className="connect4-column" key={`column-${columnIndex}`}>
+            <div className="connect4-column" key={`column-${y}`}>
 
-              {column.map((cell, y) => {
+              {column.map((cell, x) => {
 
                 let cellClasses = classNames({
                   'connect4-cell': true,
@@ -68,15 +38,12 @@ export default React.createClass({
                 });
 
                 return (
-                  <button
-                    key={`cell-${columnIndex}-${y}`}
-                    className={cellClasses}
-                    onClick={this.handleAddPiece.bind(
-                      this,
-                      columnIndex,
-                      board.nextPlayer
-                    )}>
-                  </button>
+                  <Cell key={`cell-${x}-${y}`}
+                    x={x}
+                    y={y}
+                    cell={cell.toString()}
+                    nextPlayer={board.nextPlayer}
+                    addPiece={this.props.addPiece} />
                 );
 
               })}
@@ -87,4 +54,14 @@ export default React.createClass({
       </div>
     );
   }
-});
+
+}
+
+/**
+ * Required properties
+ * @type {Object}
+ */
+Board.propTypes = {
+  board: React.PropTypes.instanceOf(Connect4.Board),
+  addPiece: React.PropTypes.func.isRequired
+};

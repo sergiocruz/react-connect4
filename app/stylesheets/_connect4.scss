@@ -7,7 +7,7 @@ $cell-player-red: #801515;
 $cell-player-blue: #231858;
 
 // Connect4 Components
-@import 'connect4/grid';
+@import 'connect4/board';
 @import 'connect4/column';
 @import 'connect4/cell';
 @import 'connect4/status';
