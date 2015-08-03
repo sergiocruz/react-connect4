@@ -14,6 +14,9 @@ _This step is very difficult, so play close attention._
 3. run `gulp`
 4. that's it, I was just kidding about the difficult part :)
 
+### Run tests
+In order to run tests, simply run `npm test`
+
 ### Ran into problems, or have any suggestions?
 Ping me on twitter [@hashtagserg](https://twitter.com/hashtagserg) or [open an issue](https://github.com/sergiocruz/react-connect4/issues).
 
