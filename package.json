@@ -31,15 +31,18 @@
     "watchify": "^3.3.0"
   },
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageOnlyFrom": {
+      "app/components/App.js": true,
+      "app/components/Connect4/Board.js": true
+    },
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "testFileExtensions": [
       "es6",
       "js"
     ],
     "moduleFileExtensions": [
-      "js",
-      "json",
-      "es6"
+      "js"
     ],
     "unmockedModulePathPatterns": [
       "react"
