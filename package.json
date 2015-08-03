@@ -25,7 +25,7 @@
     "gulp": "^3.9.0",
     "gulp-sass": "^2.0.4",
     "gulp-util": "^3.0.6",
-    "jest-cli": "^0.4.17",
+    "jest-cli": "facebook/jest#0.5.x",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.3.0"
@@ -41,7 +41,9 @@
       "json",
       "es6"
     ],
-    "unmockedModulePathPatterns": ["react"]
+    "unmockedModulePathPatterns": [
+      "react"
+    ]
   },
   "repository": {
     "type": "git",
