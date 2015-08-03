@@ -18,11 +18,11 @@ $cell-size-mini: 30px;
   vertical-align: middle;
   width: $cell-size;
 
-  .connect4-grid--active &:hover {
+  .connect4-board--active &:hover {
     background-color: $cell-empty-hover;
   }
 
-  .connect4-grid--inactive & {
+  .connect4-board--inactive & {
     cursor: default;
   }
 
