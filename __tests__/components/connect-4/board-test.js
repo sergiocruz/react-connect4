@@ -1,9 +1,9 @@
-jest.dontMock('../../../app/components/connect4/board');
-jest.dontMock('../../../app/components/connect4/lib');
+jest.dontMock('../../../app/components/connect-4/board');
+jest.dontMock('../../../app/components/connect-4/lib');
 
 import React from 'react/addons';
-import Board from '../../../app/components/connect4/board';
-import Connect4 from '../../../app/components/connect4/lib';
+import Board from '../../../app/components/connect-4/board';
+import Connect4 from '../../../app/components/connect-4/lib';
 
 
 const TestUtils = React.addons.TestUtils;

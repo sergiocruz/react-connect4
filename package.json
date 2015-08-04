@@ -34,7 +34,7 @@
     "collectCoverage": true,
     "collectCoverageOnlyFrom": {
       "app/components/app.js": true,
-      "app/components/connect4/board.js": true
+      "app/components/connect-4/board.js": true
     },
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "testFileExtensions": [
