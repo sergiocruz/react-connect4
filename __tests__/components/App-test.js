@@ -1,7 +1,7 @@
-jest.dontMock('../../app/components/App');
+jest.dontMock('../../app/components/app');
 
 import React from 'react/addons';
-import App from '../../app/components/App';
+import App from '../../app/components/app';
 
 const TestUtils = React.addons.TestUtils;
 
