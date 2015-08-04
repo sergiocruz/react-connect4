@@ -1,5 +1,5 @@
 import React from 'react';
-import Connect4 from './lib'
+import Connect4 from './lib';
 
 // Components
 import Board from './board';
