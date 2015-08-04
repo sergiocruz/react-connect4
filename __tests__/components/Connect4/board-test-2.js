@@ -8,7 +8,7 @@ import Connect4 from '../../../app/components/connect4/lib';
 
 const TestUtils = React.addons.TestUtils;
 let board = new Connect4.Board();
-let boardMock = jasmine.createSpyObj('boardMock', ['handleGameRefresh']);
+let boardMock = jasmine.createSpyObj('boardMock', ['handleAddPiece']);
 
 describe('Board', () => {
 
@@ -18,7 +18,7 @@ describe('Board', () => {
   beforeEach(() => {
 
     boardComponent = TestUtils.renderIntoDocument(
-      <Board board={board} addPiece={boardMock.handleGameRefresh} />
+      <Board board={board} addPiece={boardMock.handleAddPiece} />
     );
 
     boardNode = React.findDOMNode(boardComponent);
