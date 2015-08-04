@@ -4,7 +4,7 @@ import classnames from 'classnames';
 export default class Cell extends React.Component {
 
   handleAddPiece() {
-    this.props.addPiece(this.props.y, this.props.nextPlayer)
+    this.props.addPiece(this.props.y, this.props.nextPlayer);
   }
 
   render() {

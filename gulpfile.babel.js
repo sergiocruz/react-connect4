@@ -80,7 +80,7 @@ gulp.task('styles', () => {
 gulp.task('watch', ['default'], () => {
 
   gulp.watch('app/stylesheets/**/*.scss', ['styles']);
-  gulp.watch('app/**/*.js', ['bundle'])
-  gulp.watch('public/**/*.html', ['bundle'])
+  gulp.watch('app/**/*.js', ['bundle']);
+  gulp.watch('public/**/*.html', ['bundle']);
 
 });
