@@ -21,36 +21,37 @@ export default class Board extends React.Component {
       'connect4-board--inactive': !board.isActive
     });
 
+    // Array of cells
+    let cells = board.grid.map((column, y) => {
+      return (
+        <div className="connect4-column" key={`column-${y}`}>
+
+          {column.map((cell, x) => {
+
+            let cellClasses = classNames({
+              'connect4-cell': true,
+              'connect4-cell--red': (cell === 'red'),
+              'connect4-cell--blue': (cell === 'blue')
+            });
+
+            return (
+              <Cell key={`cell-${x}-${y}`}
+                x={x}
+                y={y}
+                cell={cell.toString()}
+                nextPlayer={board.nextPlayer}
+                addPiece={this.props.addPiece} />
+            );
+
+          })}
+        </div>
+      );
+    });
+
+
     return (
       <div className={boardClasses}>
-
-        {board.grid.map((column, y) => {
-
-          return (
-            <div className="connect4-column" key={`column-${y}`}>
-
-              {column.map((cell, x) => {
-
-                let cellClasses = classNames({
-                  'connect4-cell': true,
-                  'connect4-cell--red': (cell === 'red'),
-                  'connect4-cell--blue': (cell === 'blue')
-                });
-
-                return (
-                  <Cell key={`cell-${x}-${y}`}
-                    x={x}
-                    y={y}
-                    cell={cell.toString()}
-                    nextPlayer={board.nextPlayer}
-                    addPiece={this.props.addPiece} />
-                );
-
-              })}
-            </div>
-          );
-
-        })}
+        {cells}
       </div>
     );
   }
