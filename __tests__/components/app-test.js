@@ -1,19 +1,19 @@
 jest.dontMock('../../app/components/app');
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-addons-test-utils';
 import App from '../../app/components/app';
-
-const TestUtils = React.addons.TestUtils;
 
 describe('App', () => {
 
   it('renders with correct text', () => {
 
-    let app = TestUtils.renderIntoDocument(
+    let app = ReactTestUtils.renderIntoDocument(
       <App />
     );
 
-    let appNode = React.findDOMNode(app);
+    let appNode = ReactDOM.findDOMNode(app);
 
     expect(
       appNode.querySelector('h1').textContent

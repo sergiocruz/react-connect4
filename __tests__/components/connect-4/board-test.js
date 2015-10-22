@@ -1,12 +1,14 @@
 jest.dontMock('../../../app/components/connect-4/board');
 jest.dontMock('../../../app/components/connect-4/lib');
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-addons-test-utils';
+
 import Board from '../../../app/components/connect-4/board';
 import Connect4 from '../../../app/components/connect-4/lib';
 
 
-const TestUtils = React.addons.TestUtils;
 let board = new Connect4.Board();
 let boardMock = jasmine.createSpyObj('boardMock', ['handleAddPiece']);
 
@@ -17,11 +19,11 @@ describe('Board', () => {
 
   beforeEach(() => {
 
-    boardComponent = TestUtils.renderIntoDocument(
+    boardComponent = ReactTestUtils.renderIntoDocument(
       <Board board={board} addPiece={boardMock.handleAddPiece} />
     );
 
-    boardNode = React.findDOMNode(boardComponent);
+    boardNode = ReactDOM.findDOMNode(boardComponent);
 
   });
 
