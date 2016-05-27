@@ -1,13 +1,12 @@
 export default isDiagonal;
 
-// General rules
+// General rule
 const matchReq = 4;
-const numCols = 7;
-const numRows = 6;
 
 /**
  * Are there any diagonal matches?
- * @param  {Array}  grid Multidmentional array representing our grid
+ * @param  {Array}  grid Multimentional array representing our grid
+ *
  * @return {Boolean}
  */
 function isDiagonal(grid) {
@@ -25,6 +24,8 @@ function isTopLeft(grid) {
   let found;
   let foundPiece;
   let col;
+  const numRows = grid[0].length;
+  const numCols = grid.length;
 
   // Here, we take successive diagonals, defined by the location of their
   // "base", meaning the column where they meet the ground.
@@ -50,8 +51,15 @@ function isTopLeft(grid) {
 
         let piece = grid[col][row];
 
-        if(!piece) {
+        if (!piece) {
           found = 0;
+        }
+
+        // Reset if there has been a piece found, but not this current piece
+        if (found > 0 && piece !== foundPiece) {
+          found  = 0;
+          foundPiece = 0;
+          continue;
         }
 
         if (!!piece && (piece === foundPiece || !foundPiece) && (++found) === matchReq) {
@@ -79,6 +87,8 @@ function isTopRight(grid) {
   let found;
   let foundPiece;
   let col;
+  const numRows = grid[0].length;
+  const numCols = grid.length;
 
   // Here, we take successive diagonals, defined by the location of their "base",
   // meaning the column where they meet the ground.
@@ -104,8 +114,15 @@ function isTopRight(grid) {
 
           let piece = grid[col][row];
 
-          if(!piece) {
+          if (!piece) {
             found = 0;
+          }
+
+          // Reset if there has been a piece found, but not this current piece
+          if (found > 0 && piece !== foundPiece) {
+            found = 0;
+            foundPiece = 0;
+            continue;
           }
 
           if (!!piece && (piece === foundPiece || !foundPiece) && (++found) === matchReq) {
