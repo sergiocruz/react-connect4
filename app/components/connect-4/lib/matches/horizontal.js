@@ -8,21 +8,25 @@ export default isHorizontal;
  */
 function isHorizontal(grid) {
 
-  // Number of rows
-  const rowsNum = 6;
-  const columnsNum = 7;
+  const rowsNum = grid[0].length;
+  const columnsNum = grid.length;
 
   // which piece was found and how many
   let found = 0;
   let foundPiece = 0;
 
   for (let x = 0; x < rowsNum; x++) {
+
+    // Reset stats for new row
+    found = 0;
+    foundPiece = 0;
+
     for (let y = 0; y < columnsNum; y++) {
 
-      // Current piece in this row
+      // Current piece in this cell
       let piece = grid[y][x];
 
-      // Reset things if piece is 0
+      // Go to next cell AND reset stats if current piece is 0
       if (piece === 0) {
         found = 0;
         foundPiece = 0;
@@ -38,13 +42,13 @@ function isHorizontal(grid) {
       // Increase number of found pieces
       found++;
 
-      // More than 4 found pieces in a piece?
+      // More than 4 found pieces in a row?
       if (found >= 4) {
         return true;
       }
     }
   }
 
-  // nothing was found in the same row
+  // No matches found
   return false;
 }
